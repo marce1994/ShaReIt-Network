@@ -4,6 +4,7 @@
   "description": "p2p file sharing application",
   "main": "app.js",
   "scripts": {
+    "preinstall": "sudo yum install uuid-dev",
     "test": "node app.js"
   },
   "engines": {
