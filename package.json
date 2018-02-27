@@ -4,7 +4,6 @@
   "description": "p2p file sharing application",
   "main": "app.js",
   "scripts": {
-    "preinstall": "apt-get install uuid-dev",
     "test": "node app.js"
   },
   "engines": {
