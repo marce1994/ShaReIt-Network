@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-apt-get install uuid-dev
-apt-get install libuuid1
