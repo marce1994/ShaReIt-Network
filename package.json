@@ -4,6 +4,7 @@
   "description": "p2p file sharing application",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "node app.js"
   },
   "repository": {
