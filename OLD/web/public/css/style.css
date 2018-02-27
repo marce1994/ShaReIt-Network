@@ -1,0 +1,43 @@
+/* quick reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  padding-top: 54px;
+  background-image: url("../images/background.jpg");
+  background-color: #cccccc;
+}
+
+.main {
+  background: rgba(29, 106, 154, 0.3);
+}
+
+/* relevant styles */
+.img__wrap {
+  position: relative;
+  /*max-height: 200px;
+  max-width: 200px;*/
+}
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.75);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "title": "OVERLORD II",
+        "description": "Yggdrasil es un popular juego online que, de la noche a la mañana, cierra sus puertas. Sin embargo, Momonga, nuestro protagonista, decide no desconectarse, por lo que es transformado en la imagen de un esqueleto conocido como el mago más poderoso. Mientras el mundo de Yggdrasil comienza a cambiar, con los PNJs adquiriendo sentimientos, Momonga decide convertirse en el amo y señor de esa realidad.",
+        "image": "http://cdn.jkanime.net/assets/images/animes/image/overlord-ii.jpg",
+        "metadata": [
+            {"type":"video"},
+            {"genre":"Action"},
+            {"genre":"Adventure"},
+            {"genre":"Fantasy"},
+            {"genre":"Psychological"},
+            {"genre":"Comedy"},
+            {"syze":"720MB"},
+            {"duration":"55m24s"},
+            {"date":"1419058000"},
+            {"state":"emition"}
+        ],
+        "tags" : ["video","anime","serie","overlod","spanish"],
+        "magnet": "magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel",
+        "steemitposturi": "https://steemit.com/anime/@pablobianco/shareit-network"
+    },
+    {
+        "title": "DEATH NOTE",
+        "description": "Light Yagami es un excelente estudiante japonés que ha tenido una vida un tanto aburrida. Esto cambia radicalmente cuando encuentra tirado en el patio de la escuela un cuaderno negro conocido como Death Note (Libreta de la Muerte), perdido por un Shinigami (Dios de la muerte) llamado Ryuk. Cualquier humano cuyo nombre sea escrito en dicho cuaderno morirá; y, Light -luego de leer las instrucciones en el mismo- ha decidido utilizar este poder para crear un mundo sin criminales, perfecto' según su visión. Cuando los criminales comienzan a morir de forma masiva y generalmente víctimas de ataque cardíaco, las autoridades envían al legendario detective L en busca del asesino. Con L pisándole los talones: podra mantener Light su propósito incluso arriesgando su vida.",
+        "image": "http://cdn.jkanime.net/assets/images/animes/image/death-note.jpg",
+        "metadata": [
+            {"type":"video"},
+            {"genre":"Action"},
+            {"genre":"Adventure"},
+            {"genre":"Fantasy"},
+            {"genre":"Psychological"},
+            {"genre":"Comedy"},
+            {"syze":"1.3GB"},
+            {"duration":"1h55m24s"},
+            {"date":"1419038000"},
+            {"state":"emition"}
+        ],
+        "tags" : ["anime","serie","death","note","spanish"],
+        "magnet": "magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel",
+        "steemitposturi": "https://steemit.com/anime/@pablobianco/shareit-network"
+    }
+]

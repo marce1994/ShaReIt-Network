@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/index.css">
+</head>
+  <body>
+      <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="http://via.placeholder.com/350x100" alt="ShaReIt">
+                </div>
+                <div class="col-md-6">
+                    <ul class="icon-menu list-line text-xs-right">
+                        <li class="list-inline-item">
+                            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fas fa-upload fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </button>
+                            <buttona type="button" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-search fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="col-md-12">
+            <img src="http://via.placeholder.com/1920x300" alt="slide">
+        </div>
+        <!-- ko foreach: latestUploads() -->
+        <div class="row">
+            <div class="col-md-4">
+                <img data-bind="attr: { src: image }"></img>
+            </div>
+            <div class="col-md-8">
+                <h2 data-bind="text: title"></h2>
+                <p data-bind="text: new Date(timestamp)"></p>
+                <div class="col-md-12">
+                    <p data-bind="text: description"></p>
+                </div>
+                <div class="col-md-12 social">
+                    <ul class="icon-menu list-line text-xs-right">
+                        <li class="list-inline-item"></li>
+                            <a data-bind="attr: { href: magnet }">
+                                <i class="fas fa-download fa-lg"></i>
+                            </a>
+                            <a data-bind="click: function(){ vote(author,permlink) }">
+                                <i class="fas fa-heart fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /ko --> 
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <h1>Formulario subida</h1>
+                                <p>Titulo</p>
+                                <p>Descripcion</p>
+                                <p>Key para publicar en steemit ej: SSM6usoBRf8QYkhGXEKepJfFRxDVYc4JU5ZyeZHAEccciky3NvgFg</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-bind="click: function(){AddObject()}">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--<button data-bind="click: AddObject">Click me</button>-->
+        </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    
+    <script src="/public/index.js"></script>    
+    </body>
+</html>

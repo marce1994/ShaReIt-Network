@@ -1,0 +1,34 @@
+{
+  "name": "shareit",
+  "version": "0.0.1",
+  "description": "p2p file sharing application",
+  "main": "app.js",
+  "scripts": {
+    "preinstall": "yum install libuuid libuuid-devel",
+    "test": "node app.js"
+  },
+  "engines": {
+    "npm": "5.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marce1994/ShaReIt.git"
+  },
+  "keywords": [
+    "p2p",
+    "sharing"
+  ],
+  "author": "Pablo bianco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marce1994/ShaReIt/issues"
+  },
+  "homepage": "https://github.com/marce1994/ShaReIt#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "gun-db": "^1.0.568",
+    "nedb": "^1.8.0",
+    "socket.io": "^2.0.4",
+    "steem": "^0.7.1"
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>ShaReIt Alpha</title>
+        <!--
+            https://github.com/adrotec/knockout-file-bindings
+        -->
+        <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="public/vendor/jquery/jquery.min.js"></script>
+        <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container" data-bind="visible: seeding()">
+            <form class="form-horizontal">
+                <h4>Sharing torrent</h4>
+                <h2 data-bind="text: uploadSpeed"></h2>             
+                <h2 data-bind="text:  peerCount"></h2>
+            </form>
+        </div>
+
+        <div class="container" data-bind="hidden: seeding()">
+            <form class="form-horizontal">
+                <h4>Share a torrent</h4>
+                <hr/>
+                <div class="form-group">
+                    <label for="title" class="col-md-2 control-label">Title</label>
+                    <div class="col-md-10">
+                        <input type="text" data-bind="value: title" name="title" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-md-2 control-label">Description</label>
+                    <div class="col-md-10">
+                        <textarea data-bind="value: description" name="description" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <section>
+                        <label for="image" class="col-md-2 control-label">Image: </label>
+                        <input type="file" name="image">
+                        <p data-bind="src: image"></p>
+                        <img style="max-width:100px;max-height:100px;" id="imgpreview" src=""></img>
+                    </section>
+                </div>
+                <div class="form-group">
+                    <section>
+                        <label for="upload" class="col-md-2 control-label">Archivos: </label>
+                        <input type="file" name="upload" multiple>
+                        <div data-bind="foreach: fileNames">
+                            <p data-bind="text: $data"></p>
+                        </div>
+                    </section>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" class="btn btn-primary" value="Save" data-bind="click: function(){publishTorrent()}" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="public/vendor/image-compressor.js"></script>        
+        <script src="public/vendor/dragdrop.min.js"></script>
+        <script src="public/vendor/knockout-3.4.2.js"></script>
+        <script src="public/vendor/webtorrent.min.js"></script>
+        <script src="public/upload/view-model.js"></script>
+        <script src="public/upload/index.js"></script>
+    </body>
+</html>

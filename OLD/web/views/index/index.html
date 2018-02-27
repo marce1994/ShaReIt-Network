@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ShaReIt Alpha</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="public/css/style.css" rel="stylesheet">
+  </head>
+  
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">ShaReIt</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container main">
+
+        <h1 class="my-4 text-center text-lg-left">Latest uploads</h1>
+
+      <div class="row text-center text-lg-left"  data-bind="foreach: latestUploads">
+
+        <div class="img__wrap col-lg-3 col-md-4 col-xs-6">
+          <div class="d-block mb-4 h-100">
+            <img class="img__wrap img-fluid img-thumbnail" data-bind="attr: { src: imgLink }" alt="srry, img not found">
+            <div class="img__description">
+                <h2 data-bind="text: title"></h2>
+                <p data-bind="text: 'Descripcion: ' + description"></p>
+                <a class="btn-success glyphicon glyphicon-play" data-bind="click: function(){window.location = 'play?'+magnet;}">PLAY</a>
+                 <!--<p data-bind="text: 'dbid: '+dbId"></p>
+                <p data-bind="text: 'timestamp: '+timestamp"></p>-->
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!--<h1 class="my-4 text-center text-lg-left">Latest uploads</h1>
+
+      <div class="row text-center text-lg-left" data-bind="foreach: latestUploads">
+        <div class="img__wrap col-lg-2 col-md-4 col-xs-6">
+          <img class="img__img img-fluid img-thumbnail" src="http://placehold.it/360x300.jpg" />
+          <div class="img__description  img-fluid img-thumbnail">
+              <h2 data-bind="text: title"></h2>
+              <p data-bind="text: description"></p>
+              <p data-bind="text: magnet"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6" data-bind="foreach: latestUploads">
+        <a href="#" class="d-block mb-4 h-100">
+          <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+        </a>
+      </div>-->
+    </div>
+    
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; ShaReIt 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="public/vendor/jquery/jquery.min.js"></script>
+    <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="public/vendor/knockout-3.4.2.js"></script>
+    <script src="public/home/index-model.js"></script>  
+    <script src="public/home/index.js"></script>
+  </body>
+</html>
