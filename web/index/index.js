@@ -102,7 +102,8 @@ function vote(author, permlink) {
 
 function test() {
     //fillPostFromSteem({permlink:"shareit-network", author:"pablobianco"});
-    //sendPost({permlink:"overlord-ii",author:"pablobianco",magnet:"magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel", image:"http://cdn.jkanime.net/assets/images/animes/image/overlord-ii.jpg"});
+    //var random = Math.floor((Math.random() * 100000) + 1);
+    sendPost({permlink:"overlord-ii"/*+random*/,author:"pablobianco",magnet:"magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel", image:"http://cdn.jkanime.net/assets/images/animes/image/overlord-ii.jpg"});
     //vote();
     /*console.log(steem.auth.isWif("key"));
     console.log(steem.auth.wifToPublic("key"));

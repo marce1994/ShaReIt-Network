@@ -1,7 +1,8 @@
 module.exports = function (http, gunOptions) {
     var Gun = require('gun');
     var gun = Gun(gunOptions);
-    module.AddObject = function(Obj, callback){
+    module.AddObject = function(key,Obj, callback){
+        console.log(key);
         var uploads = gun.get('uploads_database');
         Obj.timestamp = Date.now();
         uploads.set(Obj, function(ack) { callback(ack); });

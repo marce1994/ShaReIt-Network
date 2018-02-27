@@ -2,7 +2,7 @@ module.exports = function (http, io) {
     //database configs
     var gunOptions = {
         file: './database/data.db',
-        //peers: ['http://192.168.1.130:8080/gun','http://192.168.1.131:80/gun'],
+        peers: ['https://shareit-network.herokuapp.com//gun'],
         web: http
     }
     var nedbOptions = {
@@ -15,7 +15,7 @@ module.exports = function (http, io) {
     gundb.Suscribe(AddEvent);
 
     module.AddObj = function(obj){
-        gundb.AddObject(obj, function(ack){
+        gundb.AddObject(obj.magnet,obj, function(ack){
             console.log('Added');
         });
     }
