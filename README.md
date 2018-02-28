@@ -14,3 +14,7 @@
   - node app.js
 
 If u are interested in make contributions, you are welcome :)
+
+
+REFERENCES:
+https://github.com/steemit/steem-js/tree/master/doc#tags
