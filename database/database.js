@@ -2,7 +2,7 @@ module.exports = function (http, io) {
     //database configs
     var gunOptions = {
         file: './database/data.db',
-        peers: ['https://shareit-network.herokuapp.com//gun'],
+        peers: ['https://shareit-network.herokuapp.com:443/gun'],
         web: http
     }
     var nedbOptions = {

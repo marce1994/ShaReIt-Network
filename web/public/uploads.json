@@ -1,0 +1,24 @@
+[
+    {
+        "title": "DEATH NOTE",
+        "description": "Light Yagami es un excelente estudiante japonés que ha tenido una vida un tanto aburrida. Esto cambia radicalmente cuando encuentra tirado en el patio de la escuela un cuaderno negro conocido como Death Note (Libreta de la Muerte), perdido por un Shinigami (Dios de la muerte) llamado Ryuk. Cualquier humano cuyo nombre sea escrito en dicho cuaderno morirá; y, Light -luego de leer las instrucciones en el mismo- ha decidido utilizar este poder para crear un mundo sin criminales, perfecto' según su visión. Cuando los criminales comienzan a morir de forma masiva y generalmente víctimas de ataque cardíaco, las autoridades envían al legendario detective L en busca del asesino. Con L pisándole los talones: podra mantener Light su propósito incluso arriesgando su vida.",
+        "image": "http://cdn.jkanime.net/assets/images/animes/image/death-note.jpg",
+        "genres" : [ "Action", "Adventure", "Fantasy", "Game", "Magic", "Supernatural" ],
+        "metadata": [
+            { "vote_quantity" : 100 },
+            { "coment_quantity" : 100 },
+            { "date" : "1419038000" },
+            { "state" : "emition" },
+            {"files" : [
+                { "type" : "video", "filename" : "death-note-s1-e04", "extension" : "mp4", "size" : "780.4mb", "duration" : "1h55m24s"},
+                { "type" : "other", "filename" : "death-note-s1-e04", "extension" : "srt", "size" : "12kb"},
+                { "type" : "image", "filename" : "death-note-s1-e04-screenshot", "extension" : "jpeg", "size" : "1.2mb"}
+            ]}
+        ],
+        "tags" : [ "anime", "serie", "death", "note", "spanish" ],
+        "magnet": "magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel",
+        "steemitposturi": "https://steemit.com/anime/@pablobianco/shareit-network",
+        "last_update_timestamp":20180203073000,
+        "creation_timestamp":20180203073000
+    }
+]

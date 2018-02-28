@@ -4,7 +4,7 @@ module.exports = function (http, gunOptions) {
     module.AddObject = function(key,Obj, callback){
         console.log(key);
         var uploads = gun.get('uploads_database');
-        Obj.timestamp = Date.now();
+        Obj.creation_timestamp = Date.now();
         uploads.set(Obj, function(ack) { callback(ack); });
     };
     module.Suscribe = function(callback)
