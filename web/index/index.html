@@ -1,75 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/index.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+    <script defer src="//use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
   <body>
-      <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="http://via.placeholder.com/350x100" alt="ShaReIt">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">ShaReIt</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="navbar-collapse offcanvas-collapse" id="ShaReItNavBar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#upload" data-toggle="modal">
+                <i class="fas fa-upload fa-inverse fa-fw"></i>
+                  Upload
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pyojo</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownProfile">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Sign Out</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="text">
+            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      <div class="nav-scroller box-shadow bg-primary-light">
+        <nav class="nav nav-underline">
+          <a class="nav-link active" href="#">Top Categories</a>
+          <a class="nav-link" href="#">
+            Action
+            <span class="badge badge-pill bg-light align-text-bottom">27</span>
+          </a>
+          <a class="nav-link" href="#">Adventure</a>
+          <a class="nav-link" href="#">Comedy</a>
+          <a class="nav-link" href="#">Drama</a>
+          <a class="nav-link" href="#">Slice of Life</a>
+          <a class="nav-link" href="#">Fantasy</a>
+          <a class="nav-link" href="#">Magic</a>
+          <a class="nav-link" href="#">Supernatural</a>
+        </nav>
+      </div>
+
+      <section id="messages" class="carousel slide m-3" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#messages" data-slide-to="0" class="active"></li>
+            <li data-target="#messages" data-slide-to="1"></li>
+            <li data-target="#messages" data-slide-to="2"></li>
+            <li data-target="#messages" data-slide-to="3"></li>
+            <li data-target="#messages" data-slide-to="4"></li>
+            <li data-target="#messages" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="alert alert-primary p-4 box-shadow" role="alert">
+                    Una noticia random con imagen de fondo
+                    Estas noticias o publicaciones pertenecen al owner de la web, no son publicidad, y si le dan like, la plata va al owner
+                    y un read more.
+                    slides que van pasando.... <a href="#">Read More</a>
                 </div>
-                <div class="col-md-6">
-                    <ul class="icon-menu list-line text-xs-right">
-                        <li class="list-inline-item">
-                            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fas fa-upload fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </button>
-                            <buttona type="button" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fas fa-search fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </button>
-                        </li>
-                    </ul>
+            </div>
+            <div class="carousel-item">
+                <div class="alert alert-secondary p-4 box-shadow" role="alert">
+                    Una noticia random con imagen de fondo
+                    Estas noticias o publicaciones pertenecen al owner de la web, no son publicidad, y si le dan like, la plata va al owner
+                    y un read more.
+                    slides que van pasando.... <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="alert alert-success p-4 box-shadow" role="alert">
+                    Una noticia random con imagen de fondo
+                    Estas noticias o publicaciones pertenecen al owner de la web, no son publicidad, y si le dan like, la plata va al owner
+                    y un read more.
+                    slides que van pasando.... <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="alert alert-danger p-4 box-shadow" role="alert">
+                    Una noticia random con imagen de fondo
+                    Estas noticias o publicaciones pertenecen al owner de la web, no son publicidad, y si le dan like, la plata va al owner
+                    y un read more.
+                    slides que van pasando.... <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="alert alert-warning p-4 box-shadow" role="alert">
+                    Una noticia random con imagen de fondo
+                    Estas noticias o publicaciones pertenecen al owner de la web, no son publicidad, y si le dan like, la plata va al owner
+                    y un read more.
+                    slides que van pasando.... <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="alert alert-info p-4 box-shadow" role="alert">
+                    Una noticia random con imagen de fondo
+                    Estas noticias o publicaciones pertenecen al owner de la web, no son publicidad, y si le dan like, la plata va al owner
+                    y un read more.
+                    slides que van pasando.... <a href="#">Read More</a>
                 </div>
             </div>
         </div>
-      </header>
-      <div class="container">
-        <div class="col-md-12">
-            <img src="http://via.placeholder.com/1920x300" alt="slide">
-        </div>
-        <!-- ko foreach: latestUploads() -->
-        <div class="row">
-            <div class="col-md-4">
-                <img data-bind="attr: { src: image }"></img>
-            </div>
-            <div class="col-md-8">
-                <h2 data-bind="text: title"></h2>
-                <p data-bind="text: new Date(timestamp)"></p>
-                <div class="col-md-12">
-                    <p data-bind="text: description"></p>
-                </div>
-                <div class="col-md-12 social">
-                    <ul class="icon-menu list-line text-xs-right">
-                        <li class="list-inline-item"></li>
-                            <a data-bind="attr: { href: magnet }">
-                                <i class="fas fa-download fa-lg"></i>
-                            </a>
-                            <a data-bind="click: function(){ vote(author,permlink) }">
-                                <i class="fas fa-heart fa-lg"></i>
-                            </a>
-                        </li>
-                    </ul>
+    </section>
+
+      <main role="main" class="container">
+
+        <section id="publications" class="row d-flex justify-content-center">
+            <!-- ko foreach: latestUploads() -->
+            <div class="col-xs-12 col-sm-6 col-md-4 py-3">
+                <div class="card">
+                    <img class="card-img-top" data-bind="attr: { src: image, alt: title }"></img>
+                    <div class="card-body">
+                        <h5 class="card-title" data-bind="text: title"></h5>
+                        <p class="card-text" data-bind="text: description"></p>
+                        <a class="btn btn-link" data-bind="attr: { href: magnet }">
+                            <i class="fas fa-download fa-lg"></i>
+                        </a>
+                        <a class="btn btn-link" data-bind="click: function(){ vote(author,permlink) }">
+                            <i class="fas fa-heart fa-lg"></i>
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted" data-bind="text: new Date(timestamp)"></small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- /ko --> 
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <!-- /ko --> 
+        </section>
+  
+
+        <div id="upload" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -99,15 +173,14 @@
         </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+    <script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    
-    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     
     <script src="/public/index.js"></script>    
     </body>
