@@ -110,3 +110,10 @@ function test() {
     var password = steem.formatter.createSuggestedPassword();
     console.log(password);*/
 }
+
+$(function () {
+    $('[data-toggle="offcanvas"]').on('click', function() {
+        $('.offcanvas-collapse').toggleClass('open');
+    });
+});
+  
