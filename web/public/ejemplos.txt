@@ -1,0 +1,12 @@
+shareit.social.getAccountInformation('pablobianco', function(err,obj){console.log(err,obj);})
+{reputation: 25, votingPower: 9282, name: "pablobianco", jsonMetadata: "{"profile":{"profile_image":"https://avatars3.gith…ntina","website":"https://github.com/marce1994"}}"}
+
+shareit.configure('pablobianco', 'password')
+
+//hay que estar autenticado -> con configure
+shareit.social.post('This is a test post, shareit-network app','this is a test post, anyway, it needs to have 55 char length minimum, so im writing random things :). hello world, how are you? :p', ['shareit','test','anime','application'], function(err,comm){console.log(err,comm)})
+{permLink: "re-pablobianco-shareit-project-webtorrent-steemit-webapp-20180301t033429125z", author: "pablobianco"}
+
+//hay que estar autenticado -> con configure
+shareit.social.comment('this is a test comment, anyway, it needs to have 55 char length minimum, so im writing random things :). hello world, how are you? :p', 'pablobianco', shareit.parentPermLink, function(err,comm){console.log(err,comm)})
+{permLink: "re-pablobianco-shareit-project-webtorrent-steemit-webapp-20180301t033723726z", author: "pablobianco"}
