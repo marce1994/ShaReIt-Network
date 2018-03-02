@@ -1,23 +1,23 @@
-var shareit = {};
-
-shareit.social = shareit.prototype = {
+var shareit = {
     //configuration section
     parentPermLink: 'shareit-project-webtorrent-steemit-webapp',
     parentAuthor: 'pablobianco',
     jsonMetadata: { app: 'shareit' },
     //---------------------
-    userName: undefined, postkey: undefined,
+    userName: undefined, postKey: undefined,
+};
 
+shareit.social = shareit.prototype = {
     /**
      * @description Used to configure the library, without this, we cant call any post, and vote operation.
      * @param {string} userName Represents user's name in steemit.
      * @param {string} password Represents user's password in steemit.
      */
-    configure: function (userName, password) {
-        this.userName = userName;
-        this.postkey = steem.auth.getPrivateKeys(userName, password, ['posting']).posting;
-        console.log(this.postkey);
-        console.log('Is valid postKet? ', steem.auth.isWif(this.postkey));
+    configure(userName, password) {
+        shareit.userName = userName;
+        shareit.postKey = steem.auth.getPrivateKeys(userName, password, ['posting']).posting;
+        console.log(shareit.postkey);
+        console.log('Is valid postKet? ', steem.auth.isWif(shareit.postKey));
     },
 
     /**
@@ -28,7 +28,8 @@ shareit.social = shareit.prototype = {
      */
     upVote(author, permLink, callback) {
         /* @params username, password, author, permlink, weight */
-        steem.broadcast.vote(postkey, userName, author, permLink, 10000, function (err, result) {
+        console.log(shareit.postKey);        
+        steem.broadcast.vote(shareit.postKey, shareit.userName, author, permLink, 10000, function (err, result) {
             callback(err, result !== undefined);
         });
     },
@@ -41,7 +42,8 @@ shareit.social = shareit.prototype = {
      */
     downVote(author, permLink, callback) {
         /* @params username, password, author, permlink, weight */
-        steem.broadcast.vote(postkey, userName, author, permLink, -10000, function (err, result) {
+        console.log(shareit.postKey);
+        steem.broadcast.vote(shareit.postKey, shareit.userName, author, permLink, -10000, function (err, result) {
             callback(err, result !== undefined);
         });
     },
@@ -86,8 +88,8 @@ shareit.social = shareit.prototype = {
         }
         if (valid) {
             var commentPermLink = steem.formatter.commentPermlink(userName, parentPermLink);
-            jsonMetadata.tags = tags;
-            steem.broadcast.comment(postkey, parentAuthor, parentPermLink, userName, commentPermLink, title, body, jsonMetadata, function (err, result) {
+            
+            steem.broadcast.comment(shareit.postKey, shareit.parentAuthor, shareit.parentPermLink, shareit.userName, commentPermLink, title, body, {tags}, function (err, result) {
                 callback(err, { permLink: commentPermLink, author: userName });
             });
         } else {
@@ -109,7 +111,7 @@ shareit.social = shareit.prototype = {
         }
         if (valid) {
             var commentPermLink = steem.formatter.commentPermlink(author, authorPermLink);
-            steem.broadcast.comment(postkey, author, authorPermLink, userName, commentPermLink, '', body, jsonMetadata, function (err, result) {
+            steem.broadcast.comment(shareit.postKey, author, authorPermLink, shareit.userName, commentPermLink, '', body, shareit.jsonMetadata, function (err, result) {
                 //it returns how to access to this post, optional.
                 callback(err, { permLink: commentPermLink, author: userName });
             });
@@ -177,7 +179,7 @@ shareit.torrent = shareit.prototype = {
         webTorrent.seed(magnet, function (torrent) {
             console.log("Sharing torrent");
             var t = {};
-            t.magnet = torrent.magnetURI;  
+            t.magnet = torrent.magnetURI;
             //some more things
             torrents.push(t);
             // Trigger statistics refresh
