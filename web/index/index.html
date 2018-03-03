@@ -154,17 +154,49 @@
                         </div>
                         <div class="modal-body">
                             <div class="container">
-                                <h1>Formulario subida</h1>
-                                <p>Titulo</p>
-                                <p>Descripcion</p>
-                                <p>Key para publicar en steemit</p>
-                                <p>Archivo</p>
-                                <p>Imagen</p> <!--se publica en steemit y se utiliza desde ahi?-->
+                                <form class="form-horizontal">
+                                    <h4>Share a torrent</h4>
+                                    <hr/>
+                                    <div class="form-group">
+                                        <label for="title" class="col-md-2 control-label">Title</label>
+                                        <div class="col-md-10">
+                                            <input type="text" data-bind="value: title" name="title" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="col-md-2 control-label">Description</label>
+                                        <div class="col-md-10">
+                                            <textarea data-bind="value: description" name="description" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <section>
+                                            <label for="image" class="col-md-2 control-label">Image: </label>
+                                            <input type="text" data-bind="textInput: img">
+                                            <p data-bind="src: image"></p>
+                                            <img style="max-width:100px;max-height:100px;" id="imgpreview" data-bind="attr: { src: img }"></img>
+                                        </section>
+                                    </div>
+                                    <div class="form-group">
+                                        <section>
+                                            <label for="upload" class="col-md-2 control-label">Archivos: </label>
+                                            <input type="file" name="upload" multiple>
+                                            <div data-bind="foreach: fileNames">
+                                                <p data-bind="text: $data"></p>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="button" class="btn btn-primary" value="Save" data-bind="click: function(){createContent(title, description, fileNames, img, ['test','video'])}" />
+                                        </div>
+                                    </div>-->
+                                </form>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-bind="click: function(){AddObject()}">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-bind="click: function() {createContent(title(), description(), fileInput[0].files, img(), ['test','video'])}">Publish</button>
                         </div>
                     </div>
                 </div>
@@ -178,9 +210,11 @@
     <script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-
+    
     <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+    <script src="/public/js/shareit.js"></script>
     
     <script src="/public/index.js"></script>    
     </body>

@@ -2,11 +2,29 @@ function indexViewModel() {
     var self = {};
     self.latestUploads = ko.observableArray([]);
     self.newObj = ko.observable();
+    // torrent variables
+    self.fileNames = ko.observableArray();
+
+    self.title = ko.observable();
+    self.description = ko.observable();
+    self.img = ko.observable();
+    self.tags = ko.observableArray();
+    self.magnetLink = ko.observable();
+
+    self.seeding = ko.observable(false);
+    self.torrent = ko.observable();
+
+    self.uploadSpeed = ko.observable();
+    self.downloadSpeed = ko.observable();
+    self.peerCount = ko.observable();
+
     return self;
 };
 
 var viewModel;
+var fileInput;
 $(document).ready(function () {
+    shareit.social.configure('pablobianco','Put your password here');    
     viewModel = indexViewModel();
     /*viewModel.newObj({
         title: 'OVERLORD II',
@@ -15,8 +33,21 @@ $(document).ready(function () {
         magnet: 'magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel',
         steemitposturi: 'https://steemit.com/anime/@pablobianco/shareit-network',
     });*/
+    fileInput = $('input:file[name=upload]');
+    fileInput.on('change',function(){
+        if(fileInput[0].files.length > 0){
+            viewModel.fileNames([]);
+            for (var index = 0; index < fileInput[0].files.length; index++) {
+                var element = fileInput[0].files[index];
+                viewModel.fileNames.push(element.name);
+            }
+        }else{
+            console.log("debe seleccionar archivos");
+        }
+    });
     ko.applyBindings(viewModel);
-    test();
+    //test();
+    //createContent(null,null,null,null,null);
 });
 
 var socket = io.connect();
@@ -31,14 +62,14 @@ socket.on('new', function (data) {
         if (element.timestamp == data.timestamp) exists = true;
     });
     if (!exists) {
-        if (data.fillfromsteem == true) {
+        /*if (data.fillfromsteem == true) {
             fillPostFromSteem(data, function (res) {
                 viewModel.latestUploads.unshift(res);
             });
         }
-        else {
+        else {*/
             viewModel.latestUploads.unshift(data);
-        }
+        //}
     }
     console.log(data);
 });
@@ -48,11 +79,11 @@ function AddObject() {
 }
 
 function sendPost(obj) {
+    socket.emit('add', obj);
     //verifi post exists.
-    steem.api.getContent(obj.author, obj.permlink, function (err, result) {
+    /*steem.api.getContent(obj.author, obj.permlink, function (err, result) {
         if (err == null) {
             console.log("Account and post exists");
-            obj.id = result.id;
             obj.title = result.title;
             obj.description = result.body;
             obj.author = result.author;
@@ -63,11 +94,11 @@ function sendPost(obj) {
         }
         else
             console.log(err);
-    });
+    });*/
 }
 
 //fill the data from steem
-function fillPostFromSteem(obj, callback) {
+/*function fillPostFromSteem(obj, callback) {
     steem.api.getContent(obj.author, obj.permlink, function (err, result) {
         //exists
         if (err == null && result.id != 0) {
@@ -82,11 +113,42 @@ function fillPostFromSteem(obj, callback) {
             console.log(err);
         }
     });
-}
+}*/
 
-var user = {
-    votekey: "set a key",
-    username: "pablobianco"
+function createContent(title, body, files, image, tags){
+    var objBackend = {};
+    if(!shareit.torrent.webTorrentSupported()){
+        alert('Sorry :( \n webtorrent is not supported. Please Chrome, Firefox or another browser.');
+    }else{
+        // Verify if user is logged
+        if(!shareit.social.authenticated()){
+            alert('Please log in first :)!');            
+            return;
+        }
+        console.log(files);
+        // Try to create torrent
+        shareit.torrent.seedFiles(files, function(updateInfo){
+            console.log(updateInfo);
+        }, function(torrent){
+            console.log(torrent);
+            // Create the post
+            shareit.social.post(title,body,tags, function(err, result){
+                console.log(err, result);
+                //Set post data
+                objBackend.author = result.author;
+                objBackend.title = result.title;
+                objBackend.description = result.body;
+                objBackend.permlink = result.permlink;
+                objBackend.json_metadata = JSON.stringify(result.json_metadata);
+                objBackend.image = image;
+                //Set torrent data
+                objBackend.magnet = torrent.magnet;
+                console.log(objBackend);
+                sendPost(objBackend);
+            });
+            // Send data to server    
+        });
+    }
 }
 
 //{privkey:keytovote, user:user that vote, author:owner of post, permlink:post link}
@@ -103,7 +165,11 @@ function vote(author, permlink) {
 function test() {
     //fillPostFromSteem({permlink:"shareit-network", author:"pablobianco"});
     //var random = Math.floor((Math.random() * 100000) + 1);
-    sendPost({permlink:"overlord-ii"/*+random*/,author:"pablobianco",magnet:"magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel", image:"http://cdn.jkanime.net/assets/images/animes/image/overlord-ii.jpg"});
+    /*steem.api.getContent('pablobianco', 'overlord-ii', function (err, result) {
+        console.log(err, result);
+    });*/
+
+    //sendPost({permlink:"overlord-ii"/*+random*/,author:"pablobianco",magnet:"magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel", image:"http://cdn.jkanime.net/assets/images/animes/image/overlord-ii.jpg"});
     //vote();
     /*console.log(steem.auth.isWif("key"));
     console.log(steem.auth.wifToPublic("key"));

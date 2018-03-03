@@ -3,9 +3,12 @@ var shareit = {
     parentPermLink: 'shareit-project-webtorrent-steemit-webapp',
     parentAuthor: 'pablobianco',
     jsonMetadata: { app: 'shareit' },
+    webTorrent: new WebTorrent(),
+    torrents: [],
     //---------------------
     userName: undefined, postKey: undefined,
 };
+shareit.webTorrent = new WebTorrent();
 
 shareit.social = shareit.prototype = {
     /**
@@ -13,6 +16,9 @@ shareit.social = shareit.prototype = {
      * @param {string} userName Represents user's name in steemit.
      * @param {string} password Represents user's password in steemit.
      */
+    authenticated(){
+        return steem.auth.isWif(shareit.postKey);
+    },
     configure(userName, password) {
         shareit.userName = userName;
         shareit.postKey = steem.auth.getPrivateKeys(userName, password, ['posting']).posting;
@@ -77,7 +83,7 @@ shareit.social = shareit.prototype = {
      * @param {function} callback It's used to returns post data callback(err, {permLink,author}).
      */
     post(title, body, tags, callback) {
-        var bodyMinLenght = 55; var valid = true; var msg = []; var titleMinLength = 5;
+        var bodyMinLenght = 10; var valid = true; var msg = []; var titleMinLength = 5;
         if (title === undefined || title.length <= titleMinLength) {
             valid = false;
             msg.push('title must have a minimum length of ' + titleMinLength);
@@ -87,10 +93,11 @@ shareit.social = shareit.prototype = {
             msg.push('body must have a minimum length of ' + bodyMinLenght);
         }
         if (valid) {
-            var commentPermLink = steem.formatter.commentPermlink(userName, parentPermLink);
+            var commentPermLink = steem.formatter.commentPermlink(shareit.userName, shareit.parentPermLink);
             
             steem.broadcast.comment(shareit.postKey, shareit.parentAuthor, shareit.parentPermLink, shareit.userName, commentPermLink, title, body, {tags}, function (err, result) {
-                callback(err, { permLink: commentPermLink, author: userName });
+                console.log(err,result);
+                callback(err, { author: shareit.userName, permlink: commentPermLink, title, json_metadata: {tags}, body });
             });
         } else {
             callback({ msg }, undefined);
@@ -104,7 +111,7 @@ shareit.social = shareit.prototype = {
      * @param {string} authorPermLink Identifies the post in steemit(/author/authorPermLink).
      */    
     comment(body, author, authorPermLink, callback) {
-        var valid = true; var msg = []; var bodyMinLenght = 55;
+        var valid = true; var msg = []; var bodyMinLenght = 10;
         if (body === undefined || body.length <= bodyMinLenght) {
             valid = false;
             msg.push('body must have a minimum length of ' + bodyMinLenght);
@@ -113,7 +120,7 @@ shareit.social = shareit.prototype = {
             var commentPermLink = steem.formatter.commentPermlink(author, authorPermLink);
             steem.broadcast.comment(shareit.postKey, author, authorPermLink, shareit.userName, commentPermLink, '', body, shareit.jsonMetadata, function (err, result) {
                 //it returns how to access to this post, optional.
-                callback(err, { permLink: commentPermLink, author: userName });
+                callback(err, { author: shareit.userName, permlink: commentPermLink, title: '', json_metadata: shareit.jsonMetadata, body });
             });
         } else {
             callback({ msg }, undefined);
@@ -125,9 +132,6 @@ shareit.social = shareit.prototype = {
  * Torrent Module
  */
 shareit.torrent = shareit.prototype = {
-    webTorrent: new WebTorrent(),    
-    torrents: [],
-
     /**
      * @description Return true if WebTorrent it's supported.
      */
@@ -141,7 +145,6 @@ shareit.torrent = shareit.prototype = {
             return false;
         }
     },
-
     /**
      * @description This function it's used to begin sharing content, like videos over p2p webtorrent network.
      * @param {*} files This object represents files/folder to share.
@@ -149,13 +152,13 @@ shareit.torrent = shareit.prototype = {
      * @param {function} callback A function that returns torrent information to post to shareit-network.
      */
     seedFiles(files, updateFunction, callback) {
-        webTorrent.seed(files, function (torrent) {
+        shareit.webTorrent.seed(files, function (torrent) {
             console.log("Torrent created, now sharing.");
             var t = {};
             t.magnet = torrent.magnetURI;
             callback(t);
             //some more things
-            torrents.push(torrent);
+            shareit.torrents.push(torrent);
             // Trigger statistics refresh
             setInterval(onProgress, 500)
             onProgress()
@@ -176,12 +179,12 @@ shareit.torrent = shareit.prototype = {
      * @param {function} updateFunction A function that its called every xxx miliseconds to send torrent status.
      */
     seedMagnetLink(magnet, updateFunction) {
-        webTorrent.seed(magnet, function (torrent) {
+        shareit.webTorrent.seed(magnet, function (torrent) {
             console.log("Sharing torrent");
             var t = {};
             t.magnet = torrent.magnetURI;
             //some more things
-            torrents.push(t);
+            shareit.torrents.push(t);
             // Trigger statistics refresh
             setInterval(onProgress, 500)
             onProgress()
