@@ -34,7 +34,7 @@ InitialiseSocketIO();
 Lista de categorías
 Búsqueda y filtrado
 */
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 http.listen(port);
 console.log(`Worker ${process.pid} started and listening on port ${port}`);
 //}
