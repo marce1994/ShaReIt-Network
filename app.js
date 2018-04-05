@@ -1,3 +1,4 @@
+
 //CORE
 //---------------------------------------------------
 /*const cluster = require('cluster');
@@ -39,8 +40,6 @@ http.listen(port);
 console.log(`Worker ${process.pid} started and listening on port ${port}`);
 //}
 
-
-
 function InitialiseSocketIO(){
   io.on('connection', function (client) {
     client.emit('message', 'hello :)');
@@ -68,24 +67,3 @@ function InitialiseSocketIO(){
     });
   });
 }
-
-/*
-function getSteemitPost(author, permlink, callback){
-  var obj = {};
-  steem.api.getContent(author, permlink, function(err, result) {
-    if(err){
-      obj.err = err;
-      console.log(err);
-    }
-    else{
-      obj.title = result.title;
-    }
-    console.log(err, result);
-  });
-}
-
-function getSteemitPostComments(author, permlink, callback){
-  steem.api.getContentReplies(author, permlink, function(err, result) {
-    console.log(err, result);
-  });
-}*/
