@@ -12,5 +12,9 @@ router.use("/index", express.static(path.join(__dirname, "index")));
 router.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "index/index.html"));
 });
+//para mandar el icono de la web
+router.get("/favicon.ico", function(req,res){
+    res.sendFile(express.static(path.join(__dirname,"public\img\favicon.ico")));
+});
 
 module.exports = router;
