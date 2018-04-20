@@ -58,8 +58,9 @@ socket.on('messages', function (data) {
 
 socket.on('new', function (data) {
     var exists = false;
+    
     viewModel.latestUploads().forEach(element => {
-        if (element.timestamp == data.timestamp) exists = true;
+        if(element.timestamp == data.timestamp) exists = false;
     });
     if (!exists) {
         /*if (data.fillfromsteem == true) {

@@ -24,14 +24,17 @@
                   Upload
               </a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownProfile">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Sign Out</a>
-              </div>
-            </li>
+            <!--<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownProfile">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="#">Sign Out</a>
+                </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownProfile">
+                    <a class="dropdown-item" href="#">Log in</a>
+                </div>
+            </li>-->
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="text">
@@ -141,8 +144,7 @@
             </div>
             <!-- /ko --> 
         </section>
-  
-
+        
         <div id="upload" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -151,18 +153,30 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        </div>
+                    </div>
                         <div class="modal-body">
                             <div class="container">
                                 <form class="form-horizontal">
                                     <div class="form-group">
-                                        <label for="title" class="col-md-2 control-label">Title</label>
+                                        <label for="username" class="col-md-10 control-label">Steemit User Name</label>
+                                        <div class="col-md-10">
+                                            <input type="text" data-bind="value: username" name="username" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postkey" class="col-md-10 control-label">Steemit Post Key</label>
+                                        <div class="col-md-10">
+                                            <input type="text" data-bind="value: postkey" name="postkey" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="title" class="col-md-10 control-label">Title</label>
                                         <div class="col-md-10">
                                             <input type="text" data-bind="value: title" name="title" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description" class="col-md-2 control-label">Description</label>
+                                        <label for="description" class="col-md-10 control-label">Description</label>
                                         <div class="col-md-10">
                                             <textarea data-bind="value: description" name="description" class="form-control"></textarea>
                                         </div>
@@ -184,11 +198,6 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <!--<div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="button" class="btn btn-primary" value="Save" data-bind="click: function(){createContent(title, description, fileNames, img, ['test','video'])}" />
-                                        </div>
-                                    </div>-->
                                 </form>
                             </div>
                         </div>
@@ -199,10 +208,9 @@
                     </div>
                 </div>
             </div>
-        <!--<button data-bind="click: AddObject">Click me</button>-->
         </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
     <script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script>

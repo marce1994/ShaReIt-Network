@@ -17,7 +17,7 @@ shareit.social = shareit.prototype = {
      * @param {string} password Represents user's password in steemit.
      */
     authenticated(){
-        return steem.auth.isWif(shareit.postKey);
+        return steem.auth.isWif(shareit.postKey) && shareit.username != undefined && shareit.postkey != undefined;
     },
     configure(userName, password) {
         shareit.userName = userName;
