@@ -1,4 +1,4 @@
-# DEMO https://shareit.network/
+# DEMO http://shareit.network/
 
 # ShaReIt (Still in brainstorming and development).
   - p2p Share magnet link application.
