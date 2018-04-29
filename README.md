@@ -1,4 +1,4 @@
-# DEMO(Autodeployed) https://shareit-network.herokuapp.com/
+# DEMO https://shareit.network/
 
 # ShaReIt (Still in brainstorming and development).
   - p2p Share magnet link application.
