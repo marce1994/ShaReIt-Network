@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +11,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {HttpModule} from '@angular/http';
 import { PublicationComponent } from './publication/publication.component';
 import { AddComponent } from './add/add.component';
-
 
 @NgModule({
   declarations: [
