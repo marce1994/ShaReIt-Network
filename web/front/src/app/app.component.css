@@ -1,11 +1,12 @@
 .publications {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 0px;
-    background-color: #DADADA;
     text-align: center;
 }
 
-mat-progress-bar {
-    margin-top: 2px;
+app-navigation {
+    position: fixed;
+    width: 100%;
+    margin: 0px;
+    z-index: 1;
 }
