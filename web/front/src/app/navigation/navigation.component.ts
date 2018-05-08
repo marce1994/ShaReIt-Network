@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {MatMenuTrigger} from '@angular/material';
+import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
-  title: string = "ShaReIt Network";
-  add: string = "Upload";
-  stats: string = "Stats";
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class NavigationComponent {
+  isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
+  constructor(private breakpointObserver: BreakpointObserver) {}
 }

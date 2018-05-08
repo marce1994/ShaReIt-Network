@@ -1,13 +1,13 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <img mat-card-avatar src="{{publication.profile_image}}">
-    <mat-card-title>{{publication.title}}</mat-card-title>
-    <mat-card-subtitle>@{{publication.author}}</mat-card-subtitle>
+    <img mat-card-avatar src="{{post.profile_image}}">
+    <mat-card-title>{{post.title}}</mat-card-title>
+    <mat-card-subtitle>@{{post.author}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="{{publication.image}}" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="{{post.image}}" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
-      {{publication.body.substring(0,255)}}...
+      {{post.body.substring(0,255)}}...
     </p>
   </mat-card-content>
   <mat-card-actions>
@@ -25,6 +25,5 @@
     </button>
   </mat-card-actions>
   <mat-card-footer>
-    12302193 likes
   </mat-card-footer>
 </mat-card>

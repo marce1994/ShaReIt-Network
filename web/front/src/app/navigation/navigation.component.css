@@ -1,8 +1,12 @@
-
-.example-icon {
-padding: 0 14px;
+.sidenav-container {
+  height: 100%;
 }
 
-.example-spacer {
-flex: 1 1 auto;
+.sidenav {
+  width: 150px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.content{
+  padding: 10px;
 }
