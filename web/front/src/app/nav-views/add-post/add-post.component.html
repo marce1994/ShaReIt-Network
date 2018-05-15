@@ -1,3 +1,19 @@
-<p>
-  add-post works!
-</p>
+<mat-card>
+  <mat-form-field>
+    <input matInput placeholder="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Subtitle">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Categories" [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-card>
